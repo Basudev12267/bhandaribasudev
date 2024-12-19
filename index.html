@@ -3,272 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basudev Bhandari | Unique and Creative</title>
+    <title>Basudev's World</title>
     <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
         body {
-            background: linear-gradient(to bottom, #87CEEB, #B0E0E6);
-            overflow-x: hidden;
+            margin: 0;
+            overflow: hidden;
+            background: radial-gradient(circle, #000428, #004e92);
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        /* Scroll Down Message Styling */
-        .scroll-down-message {
-            text-align: center;
+        /* Stars background */
+        .stars {
             position: absolute;
-            top: 75%; /* Adjusting position below the welcome message */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #333;
-            font-size: 1.5em;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            z-index: 1;
+        }
+
+        /* Scrolling text animation */
+        .scrolling-text {
+            position: absolute;
+            top: 15vh; /* Adjust the position */
+            width: 100%;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 30px;
             font-weight: bold;
-            z-index: 9999;
+            animation: scrolling 15s linear infinite;
+            text-align: center;
         }
 
-        .scroll-down-message .arrow {
-            margin-top: 20px;
-            font-size: 2em;
-            animation: bounce 1.5s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+        @keyframes scrolling {
+            0% {
+                transform: translateX(100%);
             }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
+            100% {
+                transform: translateX(-100%);
             }
         }
 
-        /* Global Warming Message Styling */
-        .global-message {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ffcc00;
-            color: #333;
-            padding: 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2em;
-            z-index: 9999;
+        /* Main content */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            margin-top: 20vh;
+        }
+
+        .typewriter h1 {
+            font-size: 50px;
+            overflow: hidden;
+            border-right: .15em solid #6fb07f;
+            white-space: nowrap;
+            margin: 0 auto;
+            width: 0;
+            animation: typing 3s steps(30) forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            to {
+                width: 28em;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .cont {
+            position: relative;
+            width: 200px; /* Smaller width */
+            height: 80px; /* Smaller height */
+            margin: 20px auto;
+            z-index: 50; /* Ensure the button stays on top */
+        }
+
+        button {
+            border-width: 1px;
+            width: 100%; /* Full width of the cont */
+            height: 100%; /* Full height of the cont */
+            border-radius: 50px;
+            background: #fff;
+            position: absolute;
+            border: 5px solid #6fb07f;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000; /* High z-index to keep the button on top */
+            font-size: 20px; /* Smaller font size */
+        }
+
+        button > span {
+            font-size: 24px; /* Smaller font size */
+            color: #6fb07f;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
             opacity: 0;
-            animation: fadeInOut 6s forwards;
-            margin-top: 10px;
         }
 
-        @keyframes fadeInOut {
+        button:focus {
+            animation: extend 1s ease-in-out forwards;
+        }
+
+        button:focus > span {
+            animation: disappear 1s ease-in-out forwards;
+        }
+
+        button:focus > img {
+            animation: appear 1s ease-in-out forwards;
+        }
+
+        @keyframes extend {
+            0% {
+                width: 200px;
+                height: 80px;
+                border-radius: 50px;
+            }
+            10% {
+                width: 210px;
+                height: 90px;
+                background: #fff;
+                margin-left: -5px;
+                margin-top: -5px;
+            }
+            20% {
+                width: 200px;
+                height: 80px;
+                background: #6fb07f;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+            100% {
+                width: 100px; /* Smaller size */
+                height: 100px; /* Smaller size */
+                border-radius: 50%;
+                margin-left: 50px;
+                background: #6fb07f;
+            }
+        }
+
+        @keyframes disappear {
             0% {
                 opacity: 1;
-                transform: translateX(-50%) translateY(0);
             }
-            80% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
+            20% {
+                color: #fff;
             }
             100% {
                 opacity: 0;
-                transform: translateX(-50%) translateY(-50px);
             }
         }
 
-        /* Parallax Effect for Hero Section */
-        .parallax {
-            background-image: url('https://www.example.com/your-image.jpg');
-            height: 100vh;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            z-index: 0;
+        @keyframes appear {
+            0% {
+                opacity: 0;
+            }
+            70% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
-        header {
-            text-align: center;
-            padding: 40px;
-            color: white;
-            background: rgba(0, 0, 0, 0.6);
+        section {
+            padding: 50px;
+            background: white;
+            color: #333;
+            display: none;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* Ensure sections have a z-index */
+            position: relative; /* Ensure sections are positioned properly */
+            margin-top: -30px; /* Make sections slightly higher */
         }
 
-        /* Header Content */
-        header h1 {
-            font-size: 3em;
-            letter-spacing: 3px;
-            color: #ff5722;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        section.active {
+            display: block;
+            z-index: 100; /* Bring the active section above other content */
         }
 
-        header h2 {
-            font-size: 1.8em;
-            color: #f1f1f1;
-        }
-
-        /* Navigation */
         nav {
-            display: flex;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            position: sticky;
+            position: fixed;
             top: 0;
-            padding: 15px;
+            width: 100%;
+            background: #000428;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 20;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            padding: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 18px;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
+            color: #004e92;
         }
 
-        /* Features Section */
-        #features {
-            background: #f7d794;
-            padding: 60px 20px;
-            text-align: center;
-            color: #333;
-        }
-
-        .feature-links a {
+        #home {
             display: block;
-            padding: 15px;
-            margin: 10px;
-            background-color: #ff5722;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
+            padding: 50px;
             text-align: center;
-            transition: background-color 0.3s;
         }
 
-        .feature-links a:hover {
-            background-color: #ff7043;
+        #features .feature-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
 
-        html {
-            scroll-behavior: smooth;
+        #features .feature-links a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #004e92;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        #features .feature-links a:hover {
+            background: #6fb07f;
+        }
+
+        #contact p {
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000428;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Hide button on all sections except home */
+        #features .cont,
+        #about .cont,
+        #contact .cont {
+            display: none;
         }
     </style>
 </head>
 <body>
+    <div class="stars"></div>
 
-    <!-- Maintenance Message -->
-    <div class="maintenance-message">This website is under maintenance</div>
-
-    <!-- Global Warming Messages (automatically displayed and disappear) -->
-    <div class="global-message" id="message1">Global Warming is a Serious Issue!</div>
-    <div class="global-message" id="message2">We need to Act Now for Our Future!</div>
-    <div class="global-message" id="message3">Reduce, Reuse, and Recycle!</div>
-    <div class="global-message" id="message4">Save Water, Save the Planet!</div>
-    <div class="global-message" id="message5">Fight Climate Change, Fight for Life!</div>
-    <div class="global-message" id="message6">The time to act on climate change is now!</div>
-    <div class="global-message" id="message7">There is no planet B!</div>
-    <div class="global-message" id="message8">The climate is changing. Why aren’t we!</div>
-    <div class="global-message" id="message9">Act on climate today for a better tomorrow!</div>
-    
-    <!-- Parallax Hero Section -->
-    <div class="parallax">
-        <header>
-            <h1>Welcome to Basudev's Creative World</h1>
-            <h2>Explore, Learn, and Create</h2>
-        </header>
+    <div class="comet-container">
+        <div class="comet" style="top: 10%; left: -10%; animation: cometTrail 8s linear infinite;"></div>
+        <div class="comet" style="top: 30%; left: 90%; animation: cometTrail 6s linear infinite; animation-direction: reverse;"></div>
+        <div class="comet" style="top: 50%; left: -15%; animation: cometTrail 7s linear infinite;"></div>
+        <div class="comet" style="top: 70%; left: 110%; animation: cometTrail 9s linear infinite; animation-direction: reverse;"></div>
+        <div class="comet" style="top: 90%; left: 50%; animation: cometTrail 5s linear infinite;"></div>
     </div>
 
-    <!-- Scroll Down Message -->
-    <div class="scroll-down-message">
-        Scroll down for features
-        <div class="arrow">&#8595;</div> <!-- Down Arrow -->
+    <!-- Scrolling Text -->
+    <div class="scrolling-text">
+        Welcome to Basudev's World! Enjoy exploring the features and have fun! Here you can use several amazing features like:
+        <strong>Fact Generator, Typing Speed Test, Story Generator, and more!</strong>
+        Explore and enjoy your journey through the site!
     </div>
 
-    <!-- Navigation -->
     <nav>
-        <a href="#features">Features</a>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('features')">Features</a>
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
     </nav>
 
-    <!-- Features Section -->
+    <div id="home" class="content">
+        <div class="typewriter">
+            <h1>Welcome to Basudev's World</h1>
+        </div>
+    </div>
+
     <section id="features">
         <h2>Features</h2>
         <div class="feature-links">
-            <a href="factgenerator.html" target="_blank"> Fact Generator</a>
-            <a href="music.html" target="_blank"> Music</a>
-            <a href="namegenerator.html" target="_blank"> Unique Name Generator</a>
-            <a href="password.html" target="_blank"> Password Generator</a>
-            <a href="qr.html" target="_blank">  QR Code Generator</a>
-            <a href="quiz.html" target="_blank"> Quiz</a>
-            <a href="speed.html" target="_blank"> Check Typing Speed</a>
-            <a href="story.html" target="_blank"> Story</a>
-            <a href="essay.html.html" target="_blank"> Essay </a>
-            <a href="poem.html" target="_blank"> Poem </a>
-            <a href="logo.html" target="_blank"> logo </a>
-            <a href="game2.html" target="_blank"> Guess the colour </a>
-            <a href="game.html" target="_blank"> Snake Game </a>
-            <a href="cv.html" target="_blank"> Cv /Resume  Generator  </a>
-            <a href="theme.html" target="_blank">Theme  </a>
-            <a href="unitconverter.html" target="_blank"> Unit converter</a>
+            <a href="factgenerator.html" target="_blank">Fact Generator</a>
+            <a href="music.html" target="_blank">Music</a>
+            <a href="namegenerator.html" target="_blank">Unique Name Generator</a>
+            <a href="password.html" target="_blank">Password Generator</a>
+            <a href="qr.html" target="_blank">QR Code Generator</a>
+            <a href="quiz.html" target="_blank">Quiz</a>
+            <a href="speed.html" target="_blank">Check Typing Speed</a>
+            <a href="story.html" target="_blank">Story</a>
+            <a href="essay.html" target="_blank">Essay</a>
+            <a href="poem.html" target="_blank">Poem</a>
+            <a href="logo.html" target="_blank">Logo</a>
+            <a href="game2.html" target="_blank">Guess the Colour</a>
+            <a href="game.html" target="_blank">Snake Game</a>
+            <a href="cv.html" target="_blank">CV/Resume Generator</a>
+            <a href="theme.html" target="_blank">Theme</a>
+            <a href="unitconverter.html" target="_blank">Unit Converter</a>
             <a href="nameanimator.html" target="_blank">Word Animator</a>
+            <a href="urlshortner.html" target="_blank">URL Shortener</a>
         </div>
     </section>
 
+    <section id="about">
+        <h2>About</h2>
+        <p>Hello! I am <strong>Basudev Bhandari</strong>, a passionate web developer. I love to create interactive, user-friendly websites and applications. Through my journey, I aim to make technology accessible and enjoyable for everyone. Welcome to my world!</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:basudevbhandari666@gmail.com">basudevbhandari666@gmail.com</a></p>
+        <p>Phone: 9867218569</p>
+        <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61563009148848&mibextid=ZbWKwL" target="_blank">Visit my profile</a></p>
+    </section>
+
+    <footer>
+        <p>© 2024 Basudev Bhandari | Made with ❤️ by Basudev Bhandari</p>
+    </footer>
+
     <script>
-        // JavaScript to show global warming messages at intervals
-        let messages = [
-            "Global Warming is a Serious Issue!",
-            "We need to Act Now for Our Future!",
-            "Reduce, Reuse, and Recycle!",
-            "Save Water, Save the Planet!",
-            "Fight Climate Change, Fight for Life!",
-            "The time to act on climate change is now!",
-            "There is no planet B!",
-            "The climate is changing. Why aren’t we!",
-            "Act on climate today for a better tomorrow!",
-        ];
-
-        let messageIndex = 0;
-
-        function showNextMessage() {
-            if (messageIndex < messages.length) {
-                let messageDiv = document.createElement('div');
-                messageDiv.classList.add('global-message');
-                messageDiv.textContent = messages[messageIndex];
-                document.body.appendChild(messageDiv);
-
-                // Automatically remove the message after a few seconds
-                setTimeout(() => {
-                    messageDiv.style.opacity = 0;
-                    setTimeout(() => {
-                        messageDiv.remove();
-                    }, 1000);
-                }, 5000);
-
-                messageIndex++;
-                setTimeout(showNextMessage, 6000); // Show the next message every 6 seconds
-            }
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
         }
-
-        // Start showing messages after a slight delay
-        setTimeout(showNextMessage, 1000); // Start after 1 second to prevent overlap at start
     </script>
-
 </body>
 </html>
