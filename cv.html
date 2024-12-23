@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Generator</title>
     <style>
-        /* General Body Styling */
         body {
             margin: 0;
             padding: 0;
@@ -23,7 +22,6 @@
             font-size: 2.5rem;
         }
 
-        /* Form Container Styling */
         .form-container {
             width: 90%;
             max-width: 500px;
@@ -70,7 +68,6 @@
             transform: translateY(-3px);
         }
 
-        /* Resume Container Styling */
         .resume-container {
             display: none;
             margin: 20px auto;
@@ -116,7 +113,6 @@
             line-height: 1.5;
         }
 
-        /* Footer Styling */
         footer {
             margin-top: 30px;
             padding: 10px 0;
@@ -133,8 +129,6 @@
 </head>
 <body>
     <h1>Resume Generator</h1>
-
-    <!-- Input Form -->
     <div class="form-container">
         <h2 style="color: #2193b0;">Enter Your Details</h2>
         <input type="text" id="name" placeholder="Full Name" required>
@@ -146,8 +140,6 @@
         <textarea id="education" rows="3" placeholder="Education"></textarea>
         <button onclick="generateResume()">Generate Resume</button>
     </div>
-
-    <!-- Resume Output -->
     <div class="resume-container" id="resume">
         <div class="resume-header">
             <h2 id="output-name"></h2>
@@ -171,16 +163,11 @@
             <p id="output-education"></p>
         </div>
     </div>
-
-    <!-- Footer -->
     <footer>
         <p>Made with ❤️ by Basudev Bhandari</p>
     </footer>
-
-    <!-- JavaScript -->
     <script>
         function generateResume() {
-            // Fetch input values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
@@ -189,7 +176,6 @@
             const experience = document.getElementById('experience').value;
             const education = document.getElementById('education').value;
 
-            // Assign values to resume sections
             document.getElementById('output-name').innerText = name;
             document.getElementById('output-email').innerText = email;
             document.getElementById('output-phone').innerText = phone;
@@ -198,7 +184,6 @@
             document.getElementById('output-experience').innerText = experience;
             document.getElementById('output-education').innerText = education;
 
-            // Display resume
             document.getElementById('resume').style.display = 'block';
         }
     </script>
