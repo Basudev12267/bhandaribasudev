@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basudev Universe</title>
+    <title>Basudev Universe </title>
     <style>
         body, html {
             margin: 0;
@@ -136,53 +136,21 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script>
-        // Initialize Supabase client
-        const supabase = createClient('https://your-project-url.supabase.co', 'your-anon-key');  // Replace with your Supabase project URL and anon key
-
-        async function login() {
+        function login() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             var agreeTerms = document.getElementById('agreeTerms').checked;
 
             if (username && password && agreeTerms) {
-                // Authenticate the user using Supabase Auth
-                const { data: authData, error: authError } = await supabase.auth.signIn({
-                    email: username,   // Assuming the username is an email address
-                    password: password,
-                });
-
-                if (authError) {
-                    alert("Authentication failed: " + authError.message);
-                } else {
-                    // After successful login, insert login data into the user_logins table
-                    const { data, error } = await supabase
-                        .from('user_logins')
-                        .insert([
-                            {
-                                username: username,
-                                password_hash: password,  // Normally, store the hashed password (not plaintext) for security
-                                login_time: new Date(),
-                                ip_address: '127.0.0.1', // Example IP address; replace with actual logic to retrieve the user's IP
-                                device: 'Chrome on Windows', // Example device; replace with actual logic to detect the user's device
-                            },
-                        ]);
-
-                    if (error) {
-                        alert("Error saving login data: " + error.message);
-                    } else {
-                        console.log("Login data saved:", data);
-                        window.location.href = 'mainpage.html';  // Redirect to the main page after successful login
-                    }
-                }
+                window.location.href = 'captcha.html';  // Redirect to captcha page
             } else {
                 alert("Please fill in both username, password, and agree to the terms.");
             }
         }
 
         function loginAsGuest() {
-            window.location.href = 'mainpage.html';  // Redirect to the main page for guest login
+            window.location.href = 'captcha.html';  // Redirect to captcha page
         }
     </script>
 
