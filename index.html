@@ -173,7 +173,7 @@
                         alert("Error saving login data: " + error.message);
                     } else {
                         console.log("Login data saved:", data);
-                        window.location.href = 'captcha.html';  // Redirect to captcha page
+                        window.location.href = 'mainpage.html';  // Redirect to the main page after successful login
                     }
                 }
             } else {
@@ -182,7 +182,7 @@
         }
 
         function loginAsGuest() {
-            window.location.href = 'captcha.html';  // Redirect to captcha page
+            window.location.href = 'mainpage.html';  // Redirect to the main page for guest login
         }
     </script>
 
