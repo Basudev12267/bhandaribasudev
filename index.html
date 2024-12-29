@@ -75,6 +75,15 @@
             transform: translateY(-3px);
         }
 
+        .checkbox-container {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+
         .footer {
             margin-top: 20px;
             font-size: 14px;
@@ -113,8 +122,15 @@
         <p>Welcome! Please enter your credentials below.</p>
         <input type="text" class="input-field" id="username" placeholder="Username" required>
         <input type="password" class="input-field" id="password" placeholder="Password" required>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="agreeTerms">
+            <label for="agreeTerms">I agree to the <a href="#">Terms and Conditions</a></label>
+        </div>
+
         <button class="login-btn" onclick="login()">Login</button>
         <button class="guest-btn" onclick="loginAsGuest()">Login as Guest</button>
+
         <div class="footer">
             <span>Made with ❤️ by <a href="#">Basudev Bhandari</a></span>
         </div>
@@ -124,15 +140,17 @@
         function login() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-            if (username && password) {
-                window.location.href = 'index.html';
+            var agreeTerms = document.getElementById('agreeTerms').checked;
+
+            if (username && password && agreeTerms) {
+                window.location.href = 'captcha.html';  // Redirect to captcha page
             } else {
-                alert("Please fill in both username and password.");
+                alert("Please fill in both username, password, and agree to the terms.");
             }
         }
 
         function loginAsGuest() {
-            window.location.href = 'captcha.html';
+            window.location.href = 'captcha.html';  // Redirect to captcha page
         }
     </script>
 
