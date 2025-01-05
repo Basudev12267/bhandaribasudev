@@ -7,20 +7,68 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
      crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGV3F3E56Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGV3F3E56Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-EGV3F3E56Q');
-</script>
+      gtag('config', 'G-EGV3F3E56Q');
+    </script>
     <style>
+        /* General styles */
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
-            overflow: hidden;
+            padding: 0;
+            box-sizing: border-box;
             background: radial-gradient(circle, #000428, #004e92);
             font-family: 'Courier New', Courier, monospace;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        /* Mobile styles (default) */
+        header h1 {
+            font-size: 1.5em;
+        }
+
+        .content {
+            font-size: 1em;
+            color: white;
+            text-align: center;
+            margin-top: 20vh;
+        }
+
+        /* Tablet styles */
+        @media (min-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .content {
+                font-size: 1.5em;
+            }
         }
 
         /* Stars background */
@@ -55,14 +103,6 @@
         }
 
         /* Main content */
-        .content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            color: white;
-            margin-top: 20vh;
-        }
-
         .typewriter h1 {
             font-size: 50px;
             overflow: hidden;
@@ -278,18 +318,6 @@
     </style>
 </head>
 <body>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
-     crossorigin="anonymous"></script>
-<!-- Native_Footer_Section_Ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5539548565697603"
-     data-ad-slot="7304097375"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
     <div class="stars"></div>
 
     <div class="comet-container">
@@ -332,7 +360,7 @@
             <a href="speed.html" target="_blank">Check Typing Speed</a>
             <a href="story.html" target="_blank">Story</a>
             <a href="essay.html" target="_blank">Essay</a>
-            <a href="cricketquiz.html" target="_blank">Cricket Quiz </a>
+            <a href="cricketquiz.html" target="_blank">Cricket Quiz</a>
             <a href="poem.html" target="_blank">Poem</a>
             <a href="tictactoe.html" target="_blank">Tic Tac Toe</a>
             <a href="logo.html" target="_blank">Logo</a>
@@ -348,27 +376,30 @@
 
     <section id="about">
         <h2>About</h2>
-        <p>Hello! I am <strong>Basudev Bhandari</strong>, a passionate web developer. I love to create interactive, user-friendly websites and applications. Through my journey, I aim to make technology accessible and enjoyable for everyone. Welcome to my world!</p>
+        <p>Hello! I am Basudev Bhandari, a passionate web developer. I create amazing web applications to make your life easier. I am focused on building innovative solutions and providing a smooth user experience.</p>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
+        <p>Hello! I am <strong>Basudev Bhandari</strong>, a passionate web developer. I love to create interactive, user-friendly websites and applications. Through my journey, I aim to make technology accessible and enjoyable for everyone. Welcome to my world!</p>
         <p>Email: <a href="mailto:basudevbhandari666@gmail.com">basudevbhandari666@gmail.com</a></p>
         <p>Phone: 9867218569</p>
         <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61563009148848&mibextid=ZbWKwL" target="_blank">Visit my profile</a></p>
     </section>
 
     <footer>
-        <p>© 2024 Basudev Bhandari | Made with ❤️ by Basudev Bhandari</p>
+        <p>Designed with ❤️ by Basudev Bhandari</p>
     </footer>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
+        function showSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
         }
+
+        // Initialize with home section visible
+        showSection('home');
     </script>
 </body>
 </html>
