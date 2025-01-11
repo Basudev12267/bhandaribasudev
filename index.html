@@ -3,105 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basudev Universe </title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
-     crossorigin="anonymous"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGV3F3E56Q"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-<meta name="google-adsense-account" content="ca-pub-5539548565697603">
-      gtag('config', 'G-EGV3F3E56Q');
-    </script>
-
+    <title>Basudev's universe Login Form</title>
     <style>
-        body, html {
+        :root {
+            --background: #1a1a2e;
+            --color: #ffffff;
+            --primary-color: #0f3460;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: "Poppins", sans-serif;
+            background: var(--background);
+            color: var(--color);
+            letter-spacing: 1px;
+            transition: background 0.2s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            height: 100vh;
         }
 
         .login-container {
-            width: 100%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
+            position: relative;
+            width: 35rem;
+        }
+
+        .form-container {
+            border: 1px solid hsla(0, 0%, 65%, 0.158);
+            box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            backdrop-filter: blur(20px);
+            z-index: 99;
+            padding: 3rem;
         }
 
-        h2 {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #777;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .input-field {
+        .login-container form input {
+            display: block;
+            padding: 14.5px;
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            background-color: #f8f8f8;
-            color: #333;
-            transition: all 0.3s ease;
+            margin: 2rem 0;
+            color: var(--color);
+            background-color: #9191911f;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 15px;
+            backdrop-filter: blur(15px);
         }
 
-        .input-field:focus {
-            outline: none;
-            border-color: #ff7e5f;
-            background-color: #fff;
-        }
-
-        .login-btn, .guest-btn {
-            width: 100%;
-            padding: 15px;
-            margin: 15px 0;
-            background-color: #ff7e5f;
-            color: white;
+        .login-container form button {
+            background-color: var(--primary-color);
+            color: var(--color);
+            display: block;
+            padding: 13px;
+            border-radius: 5px;
             font-size: 18px;
             font-weight: bold;
-            border: none;
-            border-radius: 8px;
+            width: 100%;
             cursor: pointer;
-            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            border: none;
         }
 
-        .login-btn:hover, .guest-btn:hover {
-            background-color: #feb47b;
-            transform: translateY(-3px);
+        .circle {
+            width: 8rem;
+            height: 8rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
         }
 
-        .checkbox-container {
-            margin-bottom: 20px;
-            text-align: left;
+        .illustration {
+            position: absolute;
+            top: -14%;
+            right: -2px;
+            width: 90%;
         }
 
-        .checkbox-container input {
-            margin-right: 10px;
+        .circle-one {
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transform: translate(-45%, -45%);
+        }
+
+        .circle-two {
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            transform: translate(45%, 45%);
         }
 
         .footer {
-            margin-top: 20px;
+            margin-top: 2rem;
             font-size: 14px;
             color: #888;
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
         }
 
         .footer a {
@@ -113,71 +125,143 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 480px) {
-            .login-container {
-                width: 80%;
-                padding: 20px;
-            }
-
-            .input-field {
-                font-size: 14px;
-            }
-
-            .login-btn, .guest-btn {
-                font-size: 16px;
-            }
+        .theme-btn-container {
+            display: flex;
+            justify-content: center;
         }
+
+        /* Styling for terms checkbox */
+        .terms-container {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .terms-container input {
+            margin-right: 0.5rem;
+        }
+
+        .terms-container label {
+            margin: 0;
+        }
+
     </style>
+
+    <!-- Google Ads Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
+        crossorigin="anonymous"></script>
+
+    <!-- Google Analytics Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGV3F3E56Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EGV3F3E56Q');
+    </script>
+
+    <meta name="google-adsense-account" content="ca-pub-5539548565697603">
 </head>
 <body>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
-     crossorigin="anonymous"></script>
-<!-- Native_Footer_Section_Ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5539548565697603"
-     data-ad-slot="7304097375"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    <div class="login-container">
-        <h2>Please Login to Continue</h2>
-        <p>Welcome! Please enter your credentials below.</p>
-        <input type="text" class="input-field" id="username" placeholder="Username" required>
-        <input type="password" class="input-field" id="password" placeholder="Password" required>
+    <section class="container">
+        <div class="login-container">
+            <div class="circle circle-one"></div>
+            <div class="form-container">
+                <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+                <h1 class="opacity">LOGIN</h1>
+                <form id="loginForm" onsubmit="return handleFormSubmit(event)">
+                    <input type="text" placeholder="USERNAME" />
+                    <input type="password" placeholder="PASSWORD" />
+                    
+                    <!-- Terms and conditions checkbox -->
+                    <div class="terms-container">
+                        <input type="checkbox" id="agreeTerms" required />
+                        <label for="agreeTerms">I agree to the <a href="https://www.termsfeed.com/live/f0c86947-a623-4156-b09c-947dcf04d40a" target="_blank">Terms and Conditions</a></label>
+                    </div>
 
-        <div class="checkbox-container">
-            <input type="checkbox" id="agreeTerms">
-            <label for="agreeTerms">I agree to the <a href="#">Terms and Conditions</a></label>
+                    <!-- Login buttons wrapped in a div -->
+                    <div>
+                        <button type="submit">SUBMIT</button>
+                        <button type="button" onclick="loginAsGuest()">Login as Guest</button>
+                    </div>
+                </form>
+            </div>
+            <div class="circle circle-two"></div>
         </div>
-
-        <button class="login-btn" onclick="login()">Login</button>
-        <button class="guest-btn" onclick="loginAsGuest()">Login as Guest</button>
-
         <div class="footer">
             <span>Made with ❤️ by <a href="#">Basudev Bhandari</a></span>
         </div>
-    </div>
+        <div class="theme-btn-container"></div>
+    </section>
 
     <script>
-        function login() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var agreeTerms = document.getElementById('agreeTerms').checked;
+        const loginAsGuest = () => {
+            window.location.href = 'captch.html'; // Redirect to captch.html
+        };
 
-            if (username && password && agreeTerms) {
-                window.location.href = 'captcha.html';  // Redirect to captcha page
+        const handleFormSubmit = (event) => {
+            event.preventDefault(); // Prevent form from submitting to server
+            if (document.getElementById('agreeTerms').checked) {
+                window.location.href = 'captch.html'; // Redirect to captch.html
             } else {
-                alert("Please fill in both username, password, and agree to the terms.");
+                alert('You must agree to the Terms & Conditions to continue.');
             }
-        }
+        };
 
-        function loginAsGuest() {
-            window.location.href = 'captcha.html';  // Redirect to captcha page
-        }
+        const themes = [
+            {
+                background: "#1A1A2E",
+                color: "#FFFFFF",
+                primaryColor: "#0F3460"
+            },
+            {
+                background: "#461220",
+                color: "#FFFFFF",
+                primaryColor: "#E94560"
+            },
+            {
+                background: "#192A51",
+                color: "#FFFFFF",
+                primaryColor: "#967AA1"
+            },
+            {
+                background: "#F7B267",
+                color: "#000000",
+                primaryColor: "#F4845F"
+            },
+            {
+                background: "#F25F5C",
+                color: "#000000",
+                primaryColor: "#642B36"
+            },
+            {
+                background: "#231F20",
+                color: "#FFF",
+                primaryColor: "#BB4430"
+            }
+        ];
+
+        const setTheme = (theme) => {
+            const root = document.querySelector(":root");
+            root.style.setProperty("--background", theme.background);
+            root.style.setProperty("--color", theme.color);
+            root.style.setProperty("--primary-color", theme.primaryColor);
+        };
+
+        const displayThemeButtons = () => {
+            const btnContainer = document.querySelector(".theme-btn-container");
+            themes.forEach((theme) => {
+                const div = document.createElement("div");
+                div.className = "theme-btn";
+                div.style.cssText = `background: ${theme.background}; width: 25px; height: 25px`;
+                btnContainer.appendChild(div);
+                div.addEventListener("click", () => setTheme(theme));
+            });
+        };
+
+        displayThemeButtons();
     </script>
-
 </body>
 </html>
