@@ -128,31 +128,36 @@
         .theme-btn-container {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
         }
 
-        /* Styling for terms checkbox */
-        .terms-container {
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .theme-btn {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+            border-radius: 50%;
+            cursor: pointer;
         }
 
-        .terms-container input {
-            margin-right: 0.5rem;
+        .terms-message {
+            margin-top: 1rem;
+            text-align: center;
         }
 
-        .terms-container label {
-            margin: 0;
+        .terms-message a {
+            color: #ff7e5f;
+            text-decoration: none;
+        }
+
+        .terms-message a:hover {
+            text-decoration: underline;
         }
 
     </style>
 
-    <!-- Google Ads Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5539548565697603"
         crossorigin="anonymous"></script>
 
-    <!-- Google Analytics Script -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGV3F3E56Q"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -175,17 +180,13 @@
                     <input type="text" placeholder="USERNAME" />
                     <input type="password" placeholder="PASSWORD" />
                     
-                    <!-- Terms and conditions checkbox -->
-                    <div class="terms-container">
-                        <input type="checkbox" id="agreeTerms" required />
-                        <label for="agreeTerms">I agree to the <a href="https://www.termsfeed.com/live/f0c86947-a623-4156-b09c-947dcf04d40a" target="_blank">Terms and Conditions</a></label>
+                    <!-- By logging you agree to terms -->
+                    <div class="terms-message">
+                        <p>By logging in, you agree to the <a href="https://www.termsfeed.com/live/f0c86947-a623-4156-b09c-947dcf04d40a" target="_blank">Terms and Conditions</a></p>
                     </div>
 
-                    <!-- Login buttons wrapped in a div -->
-                    <div>
-                        <button type="submit">SUBMIT</button>
-                        <button type="button" onclick="loginAsGuest()">Login as Guest</button>
-                    </div>
+                    <button type="submit">SUBMIT</button>
+                    <button type="button" onclick="loginAsGuest()">Login as Guest</button>
                 </form>
             </div>
             <div class="circle circle-two"></div>
@@ -193,23 +194,20 @@
         <div class="footer">
             <span>Made with ❤️ by <a href="#">Basudev Bhandari</a></span>
         </div>
-        <div class="theme-btn-container"></div>
+
+        <!-- Theme Toggle Buttons -->
+        <div class="theme-btn-container">
+            <div class="theme-btn" style="background: #1A1A2E;" onclick="setTheme(0)"></div>
+            <div class="theme-btn" style="background: #461220;" onclick="setTheme(1)"></div>
+            <div class="theme-btn" style="background: #192A51;" onclick="setTheme(2)"></div>
+            <div class="theme-btn" style="background: #F7B267;" onclick="setTheme(3)"></div>
+            <div class="theme-btn" style="background: #F25F5C;" onclick="setTheme(4)"></div>
+            <div class="theme-btn" style="background: #231F20;" onclick="setTheme(5)"></div>
+        </div>
+
     </section>
 
     <script>
-        const loginAsGuest = () => {
-            window.location.href = 'captch.html'; // Redirect to captch.html
-        };
-
-        const handleFormSubmit = (event) => {
-            event.preventDefault(); // Prevent form from submitting to server
-            if (document.getElementById('agreeTerms').checked) {
-                window.location.href = 'captch.html'; // Redirect to captch.html
-            } else {
-                alert('You must agree to the Terms & Conditions to continue.');
-            }
-        };
-
         const themes = [
             {
                 background: "#1A1A2E",
@@ -243,25 +241,21 @@
             }
         ];
 
-        const setTheme = (theme) => {
+        const setTheme = (index) => {
             const root = document.querySelector(":root");
-            root.style.setProperty("--background", theme.background);
-            root.style.setProperty("--color", theme.color);
-            root.style.setProperty("--primary-color", theme.primaryColor);
+            root.style.setProperty("--background", themes[index].background);
+            root.style.setProperty("--color", themes[index].color);
+            root.style.setProperty("--primary-color", themes[index].primaryColor);
         };
 
-        const displayThemeButtons = () => {
-            const btnContainer = document.querySelector(".theme-btn-container");
-            themes.forEach((theme) => {
-                const div = document.createElement("div");
-                div.className = "theme-btn";
-                div.style.cssText = `background: ${theme.background}; width: 25px; height: 25px`;
-                btnContainer.appendChild(div);
-                div.addEventListener("click", () => setTheme(theme));
-            });
+        const loginAsGuest = () => {
+            window.location.href = 'captcha.html'; // Redirect to captcha.html
         };
 
-        displayThemeButtons();
+        const handleFormSubmit = (event) => {
+            event.preventDefault(); // Prevent form from submitting to server
+            window.location.href = 'captcha.html'; // Redirect to captcha.html
+        };
     </script>
 </body>
 </html>
